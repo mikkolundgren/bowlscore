@@ -1,3 +1,7 @@
-org/stuntbum/bowlscore/ScoreRepository.class
+org/stuntbum/bowlscore/config/MvcConfig.class
+org/stuntbum/bowlscore/controller/ScoreController.class
 org/stuntbum/bowlscore/Application.class
-org/stuntbum/bowlscore/Score.class
+org/stuntbum/bowlscore/domain/Score.class
+org/stuntbum/bowlscore/config/AppConfig.class
+org/stuntbum/bowlscore/config/RepositoryConfig.class
+org/stuntbum/bowlscore/repository/ScoreRepository.class
