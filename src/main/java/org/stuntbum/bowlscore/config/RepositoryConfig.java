@@ -27,7 +27,7 @@ public class RepositoryConfig {
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
         String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-        dbUrl += "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+        //dbUrl += "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setUrl(dbUrl);
         basicDataSource.setUsername(username);
