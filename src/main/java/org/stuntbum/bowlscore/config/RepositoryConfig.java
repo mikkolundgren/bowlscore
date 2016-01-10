@@ -21,17 +21,32 @@ import java.net.URISyntaxException;
 public class RepositoryConfig {
 
     @Bean
-    public BasicDataSource dataSource() throws URISyntaxException {
-        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+    public BasicDataSource dataSource() throws Exception {
 
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-        //dbUrl += "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
         BasicDataSource basicDataSource = new BasicDataSource();
+        String username = "";
+        String password = "";
+
+        String dbUrl = "jdbc:postgresql://";
+        if ("local".equals(System.getenv("DOMAIN"))) {
+            dbUrl += "localhost:5432/scores";
+        } else {
+            URI dbUri = new URI(System.getenv("DATABASE_URL"));
+            dbUrl += dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+            dbUrl += "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+
+            if (dbUri.getUserInfo() != null) {
+                String[] creds = dbUri.getUserInfo().split(":");
+                if (creds.length > 0) {
+                    username = creds[0];
+                    password = creds[1];
+                }
+            }
+            basicDataSource.setUsername(username);
+            basicDataSource.setPassword(password);
+        }
         basicDataSource.setUrl(dbUrl);
-        basicDataSource.setUsername(username);
-        basicDataSource.setPassword(password);
+        System.out.println("DBUrl: " + dbUrl + " Username: " + username + " pwd: " + password);
         return basicDataSource;
     }
 }
