@@ -1,6 +1,7 @@
 package org.stuntbum.bowlscore.domain;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -25,12 +26,25 @@ public class Score {
     @Column(name = "date", nullable = false)
     private Date date;
 
+    @Transient
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+
+    @Transient
+    private String formattedDate;
+
     public Score() {}
+
+    public Score (int score, Date date) {
+        this.score = score;
+        this.date = date;
+        this.formattedDate = sdf.format(date);
+    }
 
     public Score (String name, int score, Date date) {
         this.name = name;
         this.score = score;
         this.date = date;
+        this.formattedDate = sdf.format(date);
     }
     public Score (Long id) {
         this.id = id;
@@ -58,6 +72,7 @@ public class Score {
 
     public void setDate(Date date) {
         this.date = date;
+        this.formattedDate = sdf.format(date);
     }
 
     public Long getId() {
@@ -67,4 +82,9 @@ public class Score {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getFormattedDate() {
+        return sdf.format(this.date);
+    }
+
 }

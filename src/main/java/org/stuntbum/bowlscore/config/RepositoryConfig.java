@@ -32,8 +32,6 @@ public class RepositoryConfig {
             dbUrl += "localhost:5432/scores";
         } else {
             URI dbUri = new URI(System.getenv("DATABASE_URL"));
-            dbUrl += dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-            dbUrl += "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
 
             if (dbUri.getUserInfo() != null) {
                 String[] creds = dbUri.getUserInfo().split(":");
@@ -42,6 +40,8 @@ public class RepositoryConfig {
                     password = creds[1];
                 }
             }
+            dbUrl = "postgres://" + username + ":" + password + "@" + dbUri.getHost() + '/'  + dbUri.getPath();
+            dbUrl += "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
             basicDataSource.setUsername(username);
             basicDataSource.setPassword(password);
         }

@@ -1,7 +1,9 @@
 /Users/mikko/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/Application.java
 /Users/mikko/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/controller/ScoreController.java
 /Users/mikko/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/config/MvcConfig.java
+/Users/mikko/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/domain/Average.java
 /Users/mikko/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/config/RepositoryConfig.java
 /Users/mikko/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/repository/ScoreRepository.java
+/Users/mikko/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/util/Calculator.java
 /Users/mikko/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/config/AppConfig.java
 /Users/mikko/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/domain/Score.java
