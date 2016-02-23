@@ -40,7 +40,7 @@ public class RepositoryConfig {
                     password = creds[1];
                 }
             }
-            dbUrl = "postgres://" + username + ":" + password + "@" + dbUri.getHost() + '/'  + dbUri.getPath();
+            dbUrl = "postgres://" + username + ":" + password + "@" + dbUri.getHost() + dbUri.getPath();
             dbUrl += "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
             basicDataSource.setUsername(username);
             basicDataSource.setPassword(password);
