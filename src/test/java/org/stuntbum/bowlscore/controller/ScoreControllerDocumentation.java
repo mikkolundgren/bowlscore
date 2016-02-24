@@ -28,12 +28,11 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 /**
  * Created by mikko on 23/01/16.
  */
-/*
+
 @Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = {TestConfig.class, MvcConfig.class})
-*/
 public class ScoreControllerDocumentation {
 
     @Autowired
@@ -44,12 +43,12 @@ public class ScoreControllerDocumentation {
 
     private MockMvc mockMvc;
 
-    @Before
+    //@Before
     public void setup() {
         this.mockMvc = webAppContextSetup(this.context).build();
     }
 
-    @Test
+    //@Test
     public void getScoresByName() throws Exception {
         when(mockRepository.findByName("Aku")).thenReturn(new ArrayList<Score>());
         this.mockMvc.perform(get("/scores/Aku").accept("application/json"))
