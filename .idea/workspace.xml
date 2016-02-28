@@ -103,8 +103,8 @@
       <file leaf-file-name="RepositoryConfig.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/stuntbum/bowlscore/config/RepositoryConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5173267" vertical-offset="301" max-vertical-offset="750">
-              <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.92574257" vertical-offset="346" max-vertical-offset="840">
+              <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -1088,8 +1088,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stuntbum/bowlscore/config/RepositoryConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5173267" vertical-offset="301" max-vertical-offset="750">
-          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.92574257" vertical-offset="346" max-vertical-offset="840">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding />
         </state>
       </provider>

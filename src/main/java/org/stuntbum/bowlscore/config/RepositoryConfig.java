@@ -21,9 +21,11 @@ import java.net.URISyntaxException;
 public class RepositoryConfig {
 
     @Bean
-    public BasicDataSource dataSource() throws Exception {
+    public DataSource dataSource() throws Exception {
 
-        BasicDataSource basicDataSource = new BasicDataSource();
+        org.apache.tomcat.jdbc.pool.DataSource dataSource
+                = new org.apache.tomcat.jdbc.pool.DataSource();
+        dataSource.setDriverClassName("org.postgresql.Driver");
         String username = "";
         String password = "";
 
@@ -43,11 +45,15 @@ public class RepositoryConfig {
             }
             dbUrl = "jdbc:postgresql://" + username + ":" + password + "@" + dbUri.getHost() + dbUri.getPath();
             dbUrl += "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
-            basicDataSource.setUsername(username);
-            basicDataSource.setPassword(password);
+            dataSource.setUsername(username);
+            dataSource.setPassword(password);
         }
-        basicDataSource.setUrl(dbUrl);
+        dataSource.setUrl(dbUrl);
+        dataSource.setTestOnBorrow(true);
+        dataSource.setTestWhileIdle(true);
+        dataSource.setTestOnReturn(true);
+        dataSource.setValidationQuery("SELECT 1");
         System.out.println("DBUrl: " + dbUrl + " Username: " + username + " pwd: " + password);
-        return basicDataSource;
+        return dataSource;
     }
 }
