@@ -21,39 +21,24 @@ import java.net.URISyntaxException;
 public class RepositoryConfig {
 
     @Bean
-    public DataSource dataSource() throws Exception {
+    public BasicDataSource dataSource() throws Exception {
 
-        org.apache.tomcat.jdbc.pool.DataSource dataSource
-                = new org.apache.tomcat.jdbc.pool.DataSource();
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        String username = "";
-        String password = "";
 
-        String dbUrl = "jdbc:postgresql://";
+        String dbUrl = "";
         String env = System.getenv("DOMAIN");
+        BasicDataSource basicDataSource = new BasicDataSource();
         if ("local".equals(env)) {
-            dbUrl += "localhost:5432/scores";
+            dbUrl = "jdbc:postgresql://localhost:5432/scores";
         } else {
-            URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
-            if (dbUri.getUserInfo() != null) {
-                String[] creds = dbUri.getUserInfo().split(":");
-                if (creds.length > 0) {
-                    username = creds[0];
-                    password = creds[1];
-                }
-            }
-            dbUrl = "jdbc:postgresql://" + username + ":" + password + "@" + dbUri.getHost() + dbUri.getPath();
-            dbUrl += "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
-            dataSource.setUsername(username);
-            dataSource.setPassword(password);
+            dbUrl = System.getenv("JDBC_DATABASE_URL");
+            String username = System.getenv("JDBC_DATABASE_USERNAME");
+            String password = System.getenv("JDBC_DATABASE_PASSWORD");
+            basicDataSource.setUsername(username);
+            basicDataSource.setPassword(password);
+            System.out.println("DBUrl: " + dbUrl + " Username: " + username + " pwd: " + password);
         }
-        dataSource.setUrl(dbUrl);
-        dataSource.setTestOnBorrow(true);
-        dataSource.setTestWhileIdle(true);
-        dataSource.setTestOnReturn(true);
-        dataSource.setValidationQuery("SELECT 1");
-        System.out.println("DBUrl: " + dbUrl + " Username: " + username + " pwd: " + password);
-        return dataSource;
+
+        basicDataSource.setUrl(dbUrl);
+        return basicDataSource;
     }
 }
