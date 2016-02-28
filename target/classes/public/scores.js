@@ -1,5 +1,5 @@
 
-var app = angular.module('bowlScore', []);
+var app = angular.module('bowlScore', ["highcharts-ng"]);
 
 
 app.controller('Scores', function($scope, $http) {
@@ -30,6 +30,34 @@ app.controller('Charts', function($scope, $http) {
         $http.get('/scores/' + name + '/avg')
             .success(function(data) {
                 $scope.chartData = data;
+                $scope.name = name;
+
+                var scores = [];
+                var dates = [];
+                for (var i in data) {
+                    scores.push(data[i].score);
+                    dates.push(data[i].formattedDate);
+                }
+
+                $scope.chartConfig = {
+                        options: {
+                            chart: {
+                                type: 'line'
+                            }
+                        },
+                        xAxis: {
+                            categories: dates
+                        },
+                        series: [{
+                            data: scores
+                        }],
+                        title: {
+                            text: name
+                        },
+
+                        loading: false
+                    }
+
             });
     };
 

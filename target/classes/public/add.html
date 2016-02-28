@@ -13,16 +13,20 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <head>Bowling score
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="highcharts-ng.js"></script>
     <script src="scores.js"></script>
 </head>
 
 <body>
 <div ng-controller="AddScore">
     <ul class="nav nav-tabs">
-        <li role="presentation" ><a href="index.html">Home</a></li>
+        <li role="presentation"><a href="index.html">Home</a></li>
+        <li role="presentation"><a href="charts.html">Charts</a></li>
         <li role="presentation" class="active"><a href="#">Add score</a></li>
     </ul>
+    <h2>Add score</h2>
     <div>
+
         <select ng-model="name">
             <option value="Aku">Aku</option>
             <option value="Mikko">Mikko</option>

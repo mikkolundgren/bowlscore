@@ -13,6 +13,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <head>Bowling score
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="highcharts-ng.js"></script>
     <script src="scores.js"></script>
 </head>
 <div ng-controller="Charts">
@@ -21,7 +23,7 @@
         <li role="presentation" class="active"><a href="#">Charts</a></li>
         <li role="presentation"><a href="add.html">Add score</a></li>
     </ul>
-
+    <h2>Charts</h2>
     <div class="row">
         <div class="col-xs-6 col-md-3">
             <a href="#" ng-click="avg('Aku')">
@@ -39,6 +41,8 @@
             </a>
         </div>
     </div>
+    <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+
 
     <div>
         <ul>
