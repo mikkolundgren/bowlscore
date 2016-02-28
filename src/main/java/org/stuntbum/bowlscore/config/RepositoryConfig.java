@@ -29,7 +29,7 @@ public class RepositoryConfig {
 
         String dbUrl = "jdbc:postgresql://";
         String env = System.getenv("DOMAIN");
-        if (env == null || "local".equals(env)) {
+        if ("local".equals(env)) {
             dbUrl += "localhost:5432/scores";
         } else {
             URI dbUri = new URI(System.getenv("DATABASE_URL"));
