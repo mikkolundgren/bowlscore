@@ -11,7 +11,12 @@ app.controller('Scores', function($scope, $http) {
             });
     };
 
-
+    $scope.del = function(scoreId) {
+        $http.delete('/scores/' + scoreId)
+                .success(function(data) {
+                    $scope.message = "Deleted with id " + scoreId;
+        });
+    };
 });
 
 app.controller('AddScore', function($scope, $http) {
@@ -20,6 +25,7 @@ app.controller('AddScore', function($scope, $http) {
         $http.post('/scores/' + $scope.name + '/' + $scope.score)
             .success(function(data) {
                 $scope.message = "Added " + $scope.name + " " + $scope.score;
+                $scope.score = "";
         });
     };
 });
@@ -32,24 +38,24 @@ app.controller('Charts', function($scope, $http) {
                 $scope.chartData = data;
                 $scope.name = name;
 
-                var scores = [];
+                var avgs = [];
                 var dates = [];
+                var frames = [];
                 for (var i in data) {
-                    scores.push(data[i].score);
-                    dates.push(data[i].formattedDate);
+                    avgs.push(data[i].avg);
+                    dates.push(data[i].date);
+
                 }
 
                 $scope.chartConfig = {
-                        options: {
-                            chart: {
-                                type: 'line'
-                            }
-                        },
+
                         xAxis: {
                             categories: dates
                         },
                         series: [{
-                            data: scores
+                            type: 'line',
+                            name: 'Average',
+                            data: avgs
                         }],
                         title: {
                             text: name

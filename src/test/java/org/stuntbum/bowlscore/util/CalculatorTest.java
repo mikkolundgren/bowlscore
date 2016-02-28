@@ -24,15 +24,11 @@ import static org.junit.Assert.assertTrue;
 //@SpringApplicationConfiguration(AppConfig.class)
 public class CalculatorTest {
 
-
-
     @Test
-    public void testCalculateAverage() {
-        ArrayList<Score> avgs =  Calculator.getAvgFromScores(getTestData1());
+    public void testGetAverages() {
+        ArrayList<Average> avgs = Calculator.getAvegares(getTestData1());
         assertTrue(avgs.size() == 2);
         System.out.println("avgs = " + avgs);
-
-
     }
 
     private List<Score> getTestData1() {
