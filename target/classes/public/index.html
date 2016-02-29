@@ -67,7 +67,7 @@
             <tr ng-repeat="score in scores">
                 <td>{{score.formattedDate}}</td>
                 <td>{{score.score}}</td>
-                <td><a href="#" class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="del('{{score.id}}')"></a></td>
+                <td><a href="#" class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="remove(score)"></a></td>
             </tr>
             </tbody>
             </table>

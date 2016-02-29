@@ -55,14 +55,23 @@
     </div>
     <highchart id="chart1" config="chartConfig" class="span10"></highchart>
 
+    <h2 class="sub-header">Averages</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Average</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="score in chartData">
+                <td>{{score.date}}</td>
+                <td>{{score.avg}}</td>
+            </tr>
+            </tbody>
+        </table>
 
-    <div>
-        <ul>
-            <li ng-repeat="score in chartData">
-                {{score.avg}}&nbsp;{{score.date}}
-            </li>
-
-        </ul>
     </div>
 
 </div>

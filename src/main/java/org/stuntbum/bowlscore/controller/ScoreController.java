@@ -38,6 +38,11 @@ public class ScoreController {
 
     @RequestMapping(value = "/{name}/{score}", method = RequestMethod.POST)
     public Score addScore(@PathVariable String name, @PathVariable int score) {
+
+        if (score < 0 || score > 300) {
+            return new Score("Invalid value " + score, -1, new Date());
+        }
+
         return repository.save(new Score(name, score, new Date()));
     }
 

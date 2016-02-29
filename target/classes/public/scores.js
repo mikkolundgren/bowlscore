@@ -5,26 +5,32 @@ var app = angular.module('bowlScore', ["highcharts-ng"]);
 app.controller('Scores', function($scope, $http) {
 
     $scope.show = function (name) {
+    console.log("show " + name);
         $http.get('/scores/' + name)
                 .success(function(data) {
                     $scope.scores = data;
             });
     };
 
-    $scope.del = function(scoreId) {
-        $http.delete('/scores/' + scoreId)
+    $scope.remove = function (score) {
+    console.log("delete " + score.id);
+        $http.delete('/scores/' + score.id)
                 .success(function(data) {
-                    $scope.message = "Deleted with id " + scoreId;
+                    $scope.message = "Deleted with id " + score.id;
         });
     };
 });
 
 app.controller('AddScore', function($scope, $http) {
-
+    $scope.name = "Aku";
     $scope.add = function() {
         $http.post('/scores/' + $scope.name + '/' + $scope.score)
             .success(function(data) {
-                $scope.message = "Added " + $scope.name + " " + $scope.score;
+                 if (data.score < 0) {
+                    $scope.message = "Invalid score.";
+                 } else {
+                    $scope.message = "Added " + $scope.name + " " + $scope.score;
+                 }
                 $scope.score = "";
         });
     };
