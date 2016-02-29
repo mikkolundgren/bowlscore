@@ -31,8 +31,8 @@ public class Average {
         for (Score s : scores) {
             total += s.getScore();
         }
-
-        return total / (scores.size() + 1);
+        int size = scores.size() == 0 ? 1 : scores.size();
+        return total / size;
     }
 
     public void setAvg(int avg) {
