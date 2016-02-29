@@ -3,8 +3,10 @@ var app = angular.module('bowlScore', ["highcharts-ng"]);
 
 
 app.controller('Scores', function($scope, $http) {
-
+    $scope.message = "";
+    
     $scope.show = function (name) {
+    $scope.message = "";
     console.log("show " + name);
         $http.get('/scores/' + name)
                 .success(function(data) {
