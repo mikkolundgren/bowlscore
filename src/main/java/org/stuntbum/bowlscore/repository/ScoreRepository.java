@@ -3,6 +3,7 @@ package org.stuntbum.bowlscore.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
+import org.stuntbum.bowlscore.domain.Bowler;
 import org.stuntbum.bowlscore.domain.Score;
 
 import java.util.List;

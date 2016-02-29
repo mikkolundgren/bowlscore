@@ -4,7 +4,7 @@ var app = angular.module('bowlScore', ["highcharts-ng"]);
 
 app.controller('Scores', function($scope, $http) {
     $scope.message = "";
-    
+
     $scope.show = function (name) {
     $scope.message = "";
     console.log("show " + name);
@@ -37,6 +37,28 @@ app.controller('AddScore', function($scope, $http) {
         });
     };
 });
+
+app.controller('AddPayer', function($scope, $http) {
+
+    getBowlers();
+
+    $scope.add = function() {
+        $http.post('/bowlers/' + $scope.name)
+            .success(function(data) {
+                $scope.message = "Added payer " + $scope.name;
+                getBowlers();
+            });
+    }
+
+    function getBowlers () {
+        console.log('Getting bowlers...' );
+         $http.get('/bowlers')
+            .success(function(data) {
+                $scope.bowlers = data;
+         });
+    }
+
+})
 
 app.controller('Charts', function($scope, $http) {
 

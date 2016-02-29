@@ -29,33 +29,49 @@
 
 <body>
 <div class="container">
-<div class="header clearfix" ng-controller="AddScore">
-    <nav>
-        <ul class="nav nav-pills pull-right">
-            <li role="presentation" ><a href="index.html">Home</a></li>
-            <li role="presentation"><a href="charts.html">Charts</a></li>
-            <li role="presentation" class="active"><a href="#">Add score</a></li>
-            <li role="presentation"><a href="payers.html">Maksajat</a> </li>
-        </ul>
-    </nav>
-    <h3 class="text-muted">Add score</h3>
-    <div class="form-group">
-        <select class="form-control"  ng-model="name">
-            <option value="Aku" selected="selected">Aku</option>
-            <option value="Mikko">Mikko</option>
-            <option value="Olli">Olli</option>
-        </select>
+    <div class="header clearfix" ng-controller="AddPayer">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" ><a href="index.html">Home</a></li>
+                <li role="presentation"><a href="charts.html">Charts</a></li>
+                <li role="presentation"><a href="add.html">Add score</a></li>
+                <li role="presentation" class="active"><a href="#">Maksajat</a> </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Add payer</h3>
+        <div class="form-group">
+            <select class="form-control"  ng-model="name">
+                <option value="Aku" selected="selected">Aku</option>
+                <option value="Mikko">Mikko</option>
+                <option value="Olli">Olli</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-default" ng-click="add()">Add</button>
+        </div> 
+        <div>
+            <span class="label label-success">{{message}}</span>
+        </div>
+        <h2 class="sub-header">Viimeksi maksaneet</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="bowler in bowlers">
+                    <td>{{bowler.formattedDate}}</td>
+                    <td>{{bowler.name}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
     </div>
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Enter score" ng-model="score" />
-    </div>
-    <div>
-        <button type="button" class="btn btn-default" ng-click="add()">Add</button>
-    </div> 
-    <div>
-        <span class="label label-success">{{message}}</span>
-    </div>
-</div>
 </div>
 </body>
 
