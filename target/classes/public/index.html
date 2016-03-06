@@ -30,7 +30,7 @@
     <div class="header clearfix" ng-controller="Scores">
         <nav>
             <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation" class="active"><a href="index.html">Home</a></li>
                 <li role="presentation"><a href="charts.html">Charts</a></li>
                 <li role="presentation"><a href="add.html">Add score</a></li>
                 <li role="presentation"><a href="payers.html">Maksajat</a> </li>
@@ -40,17 +40,17 @@
         <div class="row">
             <div class="col-xs-6 col-md-3">
                 <a href="#" ng-click="show('Aku')">
-                    <img src="aku.jpg" />
+                    <img src="aku.jpg" class="img-fluid img-circle" />
                 </a>
             </div>
             <div class="col-xs-6 col-md-3">
                 <a href="#" ng-click="show('Mikko')">
-                    <img src="mikko.jpg" />
+                    <img src="mikko.jpg" class="img-fluid img-circle" />
                 </a>
             </div>
             <div class="col-xs-6 col-md-3">
                 <a href="#" ng-click="show('Olli')">
-                    <img src="olli.jpg" />
+                    <img src="olli.jpg" class="img-fluid img-circle" />
                 </a>
             </div>
         </div>
@@ -58,7 +58,7 @@
             <span class="label label-success">{{message}}</span>
         </div>
 
-        <h2 class="sub-header">Scores {{score.name}}</h2>
+        <h2 class="sub-header">Scores {{name}}</h2>
         <div class="table-responsive">
             <table class="table table-striped">
             <thead>

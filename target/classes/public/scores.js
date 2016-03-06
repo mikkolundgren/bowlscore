@@ -11,6 +11,7 @@ app.controller('Scores', function($scope, $http) {
         $http.get('/scores/' + name)
                 .success(function(data) {
                     $scope.scores = data;
+                    $scope.name = name;
             });
     };
 
