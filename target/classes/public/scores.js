@@ -40,6 +40,7 @@ app.controller('AddScore', function($scope, $http) {
 
 app.controller('AddPayer', function($scope, $http) {
 
+    $scope.name = "Aku";
     getBowlers();
 
     $scope.add = function() {
