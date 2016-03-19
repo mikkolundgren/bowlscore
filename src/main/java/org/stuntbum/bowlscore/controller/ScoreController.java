@@ -30,6 +30,9 @@ public class ScoreController {
         return repository.findByName(name);
     }
 
+    @RequestMapping(value = "/stats/{name}", method = RequestMethod.GET)
+    public List<Score> getStatsByName(@PathVariable String name) {return repository.findStatsByName(name);}
+
     @RequestMapping(value = "/{name}/avg", method = RequestMethod.GET)
     public List<Average> getScoreAvgByName(@PathVariable String name) {
         List<Score> scores = repository.findByName(name);

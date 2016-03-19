@@ -13,6 +13,11 @@ app.controller('Scores', function($scope, $http) {
                     $scope.scores = data;
                     $scope.name = name;
             });
+
+        $http.get('/scores/stats/' + name)
+                .success(function(data) {
+                    $scope.stat = data;
+                });
     };
 
     $scope.remove = function (score) {
