@@ -5,7 +5,7 @@ var app = angular.module('bowlScore', ["highcharts-ng"]);
 app.controller('Scores', function($scope, $http) {
     $scope.message = "";
 
-    $scope.show = function (name) {
+    var show = function (name) {
     $scope.message = "";
     console.log("show " + name);
         $http.get('/scores/' + name)
@@ -20,14 +20,20 @@ app.controller('Scores', function($scope, $http) {
                 });
     };
 
-    $scope.remove = function (score) {
+    $scope.show = show;
+
+    var remove = function (score) {
     console.log("delete " + score.id);
         $http.delete('/scores/' + score.id)
                 .success(function(data) {
                     $scope.message = "Deleted with id " + score.id;
+                    $scope.show(score.name);
         });
 
+
+
     };
+    $scope.remove = remove;
 
 });
 
