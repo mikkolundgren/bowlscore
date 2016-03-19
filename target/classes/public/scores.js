@@ -26,7 +26,9 @@ app.controller('Scores', function($scope, $http) {
                 .success(function(data) {
                     $scope.message = "Deleted with id " + score.id;
         });
+
     };
+
 });
 
 app.controller('AddScore', function($scope, $http) {

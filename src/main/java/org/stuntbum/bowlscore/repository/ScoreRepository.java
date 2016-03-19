@@ -18,15 +18,16 @@ public interface ScoreRepository extends CrudRepository<Score, String> {
     @Cacheable(value = "scoresByName")
     List<Score> findByName(@Param("name") String name);
 
+    @Cacheable(value = "statsByName")
     @Query("select max(score), min(score), avg(score) from Score where name = :name")
     List<Score> findStatsByName(@Param("name") String name);
 
     @Override
-    @CacheEvict(value = "scoresByName", allEntries = true)
+    @CacheEvict(value = {"scoresByName", "statsByName"}, allEntries = true)
     <S extends Score>S save(S score);
 
     @Override
-    @CacheEvict(value = "scoresByName", allEntries = true)
+    @CacheEvict(value = {"scoresByName", "statsByName"}, allEntries = true)
     void delete(Score score);
 
 }

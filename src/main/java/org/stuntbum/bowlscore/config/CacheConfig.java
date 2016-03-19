@@ -19,7 +19,9 @@ public class CacheConfig {
     @Bean
     CacheManager cacheManager() {
         SimpleCacheManager cacheManager = new SimpleCacheManager();
-        cacheManager.setCaches(Arrays.asList(new ConcurrentMapCache("scoresByName")));
+        cacheManager.setCaches(Arrays.asList(
+                new ConcurrentMapCache("scoresByName"),
+                new ConcurrentMapCache("statsByName")));
         return cacheManager;
     }
 
