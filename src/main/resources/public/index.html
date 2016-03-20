@@ -9,7 +9,7 @@
     <meta name="description" content="Bowlscore">
     <meta name="author" content="Mikko Lundgren">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -20,7 +20,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
     <script src="highcharts-ng.js"></script>
     <script src="scores.js"></script>
 </head>
@@ -58,7 +59,7 @@
             <span class="label label-success">{{message}}</span>
         </div>
 
-        <h2 class="sub-header">Scores {{name}} -- Highest: {{stat.0.0}} Lowest: {{stat.0.1}} Avg: {{stat.0.2 | number : 2}} </h2>
+        <h2 class="sub-header">Scores {{name}} -- Highest: {{stat.0.0}} Lowest: {{stat.0.1}} Avg: {{stat.0.2 | number : 2}} <small>(from {{stat.0.3}} series)</small> </h2>
         <div class="table-responsive">
             <table class="table table-striped">
             <thead>

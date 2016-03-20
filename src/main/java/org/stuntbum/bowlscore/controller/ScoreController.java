@@ -3,10 +3,7 @@ package org.stuntbum.bowlscore.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.stuntbum.bowlscore.domain.Average;
 import org.stuntbum.bowlscore.domain.Score;
 import org.stuntbum.bowlscore.repository.ScoreRepository;
@@ -47,6 +44,11 @@ public class ScoreController {
         }
 
         return repository.save(new Score(name, score, new Date()));
+    }
+
+    @RequestMapping(value = "/{name}/serie", method = RequestMethod.POST)
+    public Score addSerie(@PathVariable String name, @RequestBody Score score) {
+        return null;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

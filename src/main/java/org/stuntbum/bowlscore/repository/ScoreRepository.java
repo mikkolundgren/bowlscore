@@ -19,7 +19,7 @@ public interface ScoreRepository extends CrudRepository<Score, String> {
     List<Score> findByName(@Param("name") String name);
 
     @Cacheable(value = "statsByName")
-    @Query("select max(score), min(score), avg(score) from Score where name = :name")
+    @Query("select max(score), min(score), avg(score), count(score) from Score where name = :name")
     List<Score> findStatsByName(@Param("name") String name);
 
     @Override
