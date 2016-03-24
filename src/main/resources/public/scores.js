@@ -110,7 +110,7 @@ app.controller('Charts', function($scope, $http) {
                             min: 0,
                             max: 300,
                             title: {
-                                name: 'Averages'
+                                text: 'Averages'
                             }
                         },
 
