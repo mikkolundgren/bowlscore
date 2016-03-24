@@ -106,6 +106,14 @@ app.controller('Charts', function($scope, $http) {
                             text: name
                         },
 
+                        yAxis: {
+                            min: 0,
+                            max: 300,
+                            title: {
+                                name: 'Averages'
+                            }
+                        },
+
                         loading: false
                     }
 
