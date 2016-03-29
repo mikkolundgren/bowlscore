@@ -32,15 +32,25 @@ public class Score {
     @Transient
     private String formattedDate;
 
+    @Transient
     private String one;
+    @Transient
     private String two;
+    @Transient
     private String three;
+    @Transient
     private String four;
+    @Transient
     private String five;
+    @Transient
     private String six;
+    @Transient
     private String seven;
+    @Transient
     private String eight;
+    @Transient
     private String nine;
+    @Transient
     private String ten;
 
     public Score() {}
