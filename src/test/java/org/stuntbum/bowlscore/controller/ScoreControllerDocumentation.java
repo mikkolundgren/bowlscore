@@ -50,7 +50,7 @@ public class ScoreControllerDocumentation {
 
     //@Test
     public void getScoresByName() throws Exception {
-        when(mockRepository.findByName("Aku")).thenReturn(new ArrayList<Score>());
+        when(mockRepository.findByNameOrderByDateDesc("Aku")).thenReturn(new ArrayList<Score>());
         this.mockMvc.perform(get("/scores/Aku").accept("application/json"))
                 .andExpect(status().isOk());
     }

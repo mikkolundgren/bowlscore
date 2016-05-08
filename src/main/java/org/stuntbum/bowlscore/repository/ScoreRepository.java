@@ -16,7 +16,7 @@ import java.util.List;
 public interface ScoreRepository extends CrudRepository<Score, String> {
 
     @Cacheable(value = "scoresByName")
-    List<Score> findByName(@Param("name") String name);
+    List<Score> findByNameOrderByDateDesc(@Param("name") String name);
 
     @Cacheable(value = "statsByName")
     @Query("select max(score), min(score), avg(score), count(score) from Score where name = :name")

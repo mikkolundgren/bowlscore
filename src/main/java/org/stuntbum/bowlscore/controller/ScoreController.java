@@ -24,7 +24,7 @@ public class ScoreController {
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public List<Score> getScoresByName(@PathVariable String name) {
-        return repository.findByName(name);
+        return repository.findByNameOrderByDateDesc(name);
     }
 
     @RequestMapping(value = "/stats/{name}", method = RequestMethod.GET)
@@ -32,7 +32,7 @@ public class ScoreController {
 
     @RequestMapping(value = "/{name}/avg", method = RequestMethod.GET)
     public List<Average> getScoreAvgByName(@PathVariable String name) {
-        List<Score> scores = repository.findByName(name);
+        List<Score> scores = repository.findByNameOrderByDateDesc(name);
         return Calculator.getAvegares(scores);
     }
 
