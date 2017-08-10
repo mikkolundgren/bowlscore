@@ -4,10 +4,9 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
-import org.stuntbum.bowlscore.domain.Bowler;
 import org.stuntbum.bowlscore.domain.Score;
+
 import java.util.List;
 
 /**
@@ -29,5 +28,8 @@ public interface ScoreRepository extends CrudRepository<Score, String> {
     @Override
     @CacheEvict(value = {"scoresByName", "statsByName"}, allEntries = true)
     void delete(Score score);
+
+    @Cacheable(value = "scoresByNameOrderTimestamp")
+    List<Score> findByNameOrderByTimestampAsc(@Param("name") String name);
 
 }
