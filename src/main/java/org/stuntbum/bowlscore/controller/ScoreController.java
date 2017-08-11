@@ -2,9 +2,9 @@ package org.stuntbum.bowlscore.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.stuntbum.bowlscore.domain.Average;
+import org.stuntbum.bowlscore.domain.League;
 import org.stuntbum.bowlscore.domain.Score;
 import org.stuntbum.bowlscore.repository.ScoreRepository;
 import org.stuntbum.bowlscore.util.Calculator;
@@ -56,4 +56,13 @@ public class ScoreController {
         repository.delete(new Score(id));
         return "{\"id\": " + id + "}";
     }
+
+    @RequestMapping(value = "/league", method = RequestMethod.GET)
+    public League getLeague() {
+        List<Score> akun = repository.findByNameOrderByTimestampAsc("Aku");
+        return null;
+    }
+
+
+
 }

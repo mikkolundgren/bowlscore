@@ -3,10 +3,8 @@ package org.stuntbum.bowlscore.util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.stuntbum.bowlscore.config.AppConfig;
 import org.stuntbum.bowlscore.domain.Average;
+import org.stuntbum.bowlscore.domain.League;
 import org.stuntbum.bowlscore.domain.Score;
 
 import java.text.ParseException;
@@ -15,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -29,6 +28,15 @@ public class CalculatorTest {
         ArrayList<Average> avgs = Calculator.getAvegares(getTestData1());
         assertTrue(avgs.size() == 2);
         System.out.println("avgs = " + avgs);
+    }
+
+    @Test
+    public void testLeagueCalc() {
+        List<Score> scores = getTestData1();
+        League l = Calculator.generateEmptyLeague();
+        assertNotNull(l);
+        Calculator.calculateLeagueDay(scores, l);
+        assertNotNull(l);
     }
 
     private List<Score> getTestData1() {
