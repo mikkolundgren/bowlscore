@@ -21,7 +21,8 @@ public class CacheConfig {
         SimpleCacheManager cacheManager = new SimpleCacheManager();
         cacheManager.setCaches(Arrays.asList(
                 new ConcurrentMapCache("scoresByName"),
-                new ConcurrentMapCache("statsByName")));
+                new ConcurrentMapCache("statsByName"),
+                new ConcurrentMapCache("scoresOrderTimestamp")));
         return cacheManager;
     }
 

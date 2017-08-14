@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.stuntbum.bowlscore.util.CalculatorTest" time="0.016" tests="2" errors="0" skipped="0" failures="0">
+<testsuite name="org.stuntbum.bowlscore.util.CalculatorTest" time="0.018" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib"/>
@@ -64,6 +64,6 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|luottokunta.fi|*.luottokunta.fi|reuters.com|*.reuters.com|opkk.fi|*.opkk.fi|okobank.com|*.okobank.com|op-palvelut.fi|*.op-palvelut.fi|opintra.fi|*.opintra.fi|osuuspankki.fi|*.osuuspankki.fi|op-pohjola.fi|*.op-pohjola.fi|oko.fi|*.oko.fi|okobank.fi|*.okobank.fi|okobank.net|*.okobank.net|andelsbanken.fi|*.andelsbanken.fi|pohjolagroup.com|*.pohjolagroup.com|pohjola.fi|*.pohjola.fi|pohjola.com|*.pohjola.com|suomi-yhtio.fi|*.suomi-yhtio.fi|a-vakuutus.fi|*.a-vakuutus.fi|eurooppalainen.fi|*.eurooppalainen.fi|https://193.142.174.132|*.https://193.142.174.132|emce.net|*.emce.net|aditrocloud.com|*.aditrocloud.com|fkl.fi|*.fkl.fi|thomsonreuters.biz|*.thomsonreuters.biz|thomsonreuters.net|*.thomsonreuters.net|netso.fi|*.netso.fi|reuters.net|*.reuters.net|arek.fi|*.arek.fi|compelling-content.com|*.compelling-content.com|omasairaala.fi|*.omasairaala.fi|op.fi|*.op.fi|op-palvelut.net|*.op-palvelut.net|localhost|*.localhost"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testGetAverages" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.015"/>
-  <testcase name="testLeagueCalc" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.001"/>
+  <testcase name="testGetAverages" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.016"/>
+  <testcase name="testLeagueCalc" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.002"/>
 </testsuite>

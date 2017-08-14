@@ -24,7 +24,9 @@ public class ScoreController {
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public List<Score> getScoresByName(@PathVariable String name) {
-        return repository.findByNameOrderByDateDesc(name);
+        List<Score> scores =  repository.findByNameOrderByDateDesc(name);
+        System.out.println("Scores: " + scores.toString());
+        return scores;
     }
 
     @RequestMapping(value = "/stats/{name}", method = RequestMethod.GET)
@@ -59,8 +61,10 @@ public class ScoreController {
 
     @RequestMapping(value = "/league", method = RequestMethod.GET)
     public League getLeague() {
-        List<Score> akun = repository.findByNameOrderByTimestampAsc("Aku");
-        return null;
+        List<Score> scores = repository.findAllByOrderByTimestampAsc();
+        //List<Score> scores = repository.findAll();
+        System.out.println("Scores: " + scores.toString());
+        return Calculator.generateLeague(scores);
     }
 
 

@@ -65,7 +65,7 @@ public class Calculator {
         return tmpscore;
     }
 
-    protected League generateLeague(List<Score> scores) {
+    public static League generateLeague(List<Score> scores) {
 
         League l = generateEmptyLeague();
 
@@ -87,7 +87,7 @@ public class Calculator {
         return l;
     }
 
-    protected static void calculateLeagueDay(List<Score> dayScores, League league) {
+    public static void calculateLeagueDay(List<Score> dayScores, League league) {
 
         LeagueScore aku = league.getSingleScore("Aku");
         LeagueScore mikko = league.getSingleScore("Mikko");

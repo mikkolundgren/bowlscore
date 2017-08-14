@@ -33,7 +33,7 @@ public class Score {
     @Transient
     private String formattedDate;
 
-    @Transient
+    @Column(name = "timestamp", columnDefinition = "TIMESTAMP WITH TIMEZONE")
     private Timestamp timestamp;
 
     @Transient
@@ -190,5 +190,13 @@ public class Score {
 
     public void setTen(String ten) {
         this.ten = ten;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 }

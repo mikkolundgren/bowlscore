@@ -22,15 +22,15 @@ public interface ScoreRepository extends CrudRepository<Score, String> {
     List<Score> findStatsByName(@Param("name") String name);
 
     @Override
-    @CacheEvict(value = {"scoresByName", "statsByName"}, allEntries = true)
+    @CacheEvict(value = {"scoresByName", "statsByName", "scoresOrderTimestamp"}, allEntries = true)
     <S extends Score>S save(S score);
 
     @Override
     @CacheEvict(value = {"scoresByName", "statsByName"}, allEntries = true)
     void delete(Score score);
 
-    @Cacheable(value = "scoresByNameOrderTimestamp")
-    @Query("select name, score, date from Score order by timestamp asc")
-    List<Score> findByNameOrderByTimestampAsc(@Param("name") String name);
+    @Cacheable(value = "scoresOrderTimestamp")
+    @Query("select foo from Score foo where date > '2017-08-10' order by timestamp asc")
+    List<Score> findAllByOrderByTimestampAsc();
 
 }
