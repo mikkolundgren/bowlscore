@@ -119,7 +119,7 @@ public class Calculator {
             }
             if (ds.getName().equals("Olli")) {
                 olliTotal = ds.getScore();
-                olliTotal += ds.getScore();
+                olliCur += ds.getScore();
                 if (ds.getScore() > olliBest) {
                     olliBest = ds.getScore();
                 }
@@ -156,6 +156,7 @@ public class Calculator {
         if (olliBest >= akuBest && olliBest >= mikkoBest) {
             olli.addBestScore();
         }
+
     }
 
     public static League generateEmptyLeague() {

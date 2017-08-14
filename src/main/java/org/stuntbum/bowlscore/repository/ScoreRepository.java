@@ -30,6 +30,7 @@ public interface ScoreRepository extends CrudRepository<Score, String> {
     void delete(Score score);
 
     @Cacheable(value = "scoresByNameOrderTimestamp")
+    @Query("select name, score, date from Score order by timestamp asc")
     List<Score> findByNameOrderByTimestampAsc(@Param("name") String name);
 
 }

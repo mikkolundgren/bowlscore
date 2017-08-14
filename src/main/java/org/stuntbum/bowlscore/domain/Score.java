@@ -1,6 +1,7 @@
 package org.stuntbum.bowlscore.domain;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -31,6 +32,9 @@ public class Score {
 
     @Transient
     private String formattedDate;
+
+    @Transient
+    private Timestamp timestamp;
 
     @Transient
     private String one;

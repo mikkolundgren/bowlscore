@@ -1,9 +1,15 @@
 org/stuntbum/bowlscore/controller/ScoreController.class
+org/stuntbum/bowlscore/domain/League.class
 org/stuntbum/bowlscore/config/MvcConfig.class
+org/stuntbum/bowlscore/controller/BowlerController.class
+org/stuntbum/bowlscore/repository/BowlerRepository.class
 org/stuntbum/bowlscore/config/AppConfig.class
 org/stuntbum/bowlscore/domain/Average.class
+org/stuntbum/bowlscore/domain/LeagueScore.class
 org/stuntbum/bowlscore/Application.class
+org/stuntbum/bowlscore/config/CacheConfig.class
 org/stuntbum/bowlscore/util/Calculator.class
 org/stuntbum/bowlscore/config/RepositoryConfig.class
+org/stuntbum/bowlscore/domain/Bowler.class
 org/stuntbum/bowlscore/domain/Score.class
 org/stuntbum/bowlscore/repository/ScoreRepository.class

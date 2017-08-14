@@ -10,5 +10,6 @@
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/config/MvcConfig.java
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/domain/Bowler.java
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/config/RepositoryConfig.java
+/Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/domain/League.java
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/util/Calculator.java
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/config/CacheConfig.java
