@@ -83,7 +83,7 @@ app.controller('League', function($scope, $http){
                 console.log('get league.', data);
                 $scope.leagueScores = data.scores;
             });
-    
+
 
 })
 

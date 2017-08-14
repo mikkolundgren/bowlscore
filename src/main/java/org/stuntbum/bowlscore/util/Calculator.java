@@ -77,13 +77,17 @@ public class Calculator {
         String curDate = scores.get(0).getFormattedDate();
         int size = scores.size();
         int i = 0;
+        int j = 0;
         List<Score> dayScores = new ArrayList<>();
-        while(startDate.equals(curDate) && i <= size) {
-            dayScores.add(scores.get(i));
-            i++;
-            curDate = scores.get(i).getFormattedDate();
+        while(j <= size) {
+            while (startDate.equals(curDate) && i <= size) {
+                dayScores.add(scores.get(i));
+                i++;
+                curDate = scores.get(i).getFormattedDate();
+            }
+            calculateLeagueDay(dayScores, l);
+            j++;
         }
-        calculateLeagueDay(dayScores, l);
         return l;
     }
 
