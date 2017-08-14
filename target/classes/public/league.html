@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html ng-app="bowlScore">
 <head>
     <meta charset="utf-8">
@@ -21,71 +20,52 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
     <script src="highcharts-ng.js"></script>
     <script src="scores.js"></script>
 </head>
 
-    <body>
-    <div class="container">
-    <div class="header clearfix" ng-controller="Scores">
+<body>
+<div class="container">
+    <div class="header clearfix" ng-controller="League">
         <nav>
             <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="index.html">Scores</a></li>
+                <li role="presentation" ><a href="index.html">Scores</a></li>
                 <li role="presentation"><a href="charts.html">Charts</a></li>
-                <li role="presentation" ><a href="league.html">League</a></li>
+                <li role="presentation" class="active"><a href="league.html">League</a></li>
                 <li role="presentation"><a href="add.html">Add score</a></li>
                 <li role="presentation"><a href="payers.html">Maksajat</a> </li>
             </ul>
         </nav>
-        <h3 class="text-muted">Scores</h3>
-        <div class="row">
-            <div class="col-xs-6 col-md-3">
-                <a href="#" ng-click="show('Aku')">
-                    <img src="aku.jpg" class="img-fluid img-circle" />
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" ng-click="show('Mikko')">
-                    <img src="mikko.jpg" class="img-fluid img-circle" />
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" ng-click="show('Olli')">
-                    <img src="olli.jpg" class="img-fluid img-circle" />
-                </a>
-            </div>
-        </div>
-        <div>
-            <span class="label label-success">{{message}}</span>
-        </div>
+        <h2 class="text-muted">League</h2>
 
-        <h2 class="sub-header">Scores {{name}} -- Highest: {{stat.0.0}} Lowest: {{stat.0.1}} Avg: {{stat.0.2 | number : 2}} <small>(from {{stat.0.3}} series)</small> </h2>
         <div class="table-responsive">
             <table class="table table-striped">
-            <thead>
+                <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Score</th>
-                    <!--
-                    <th>Delete</th>
-                    -->
+                    <th>Name</th>
+                    <th>Wins</th>
+                    <th>Best scores</th>
+                    <th>Totals</th>
+                    <th>Total points</th>
                 </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="score in scores">
-                <td>{{score.formattedDate}}</td>
-                <td>{{score.score}}</td>
-                <!--
-                <td><a href="#" class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="remove(score)"></a></td>
-                -->
-            </tr>
-            </tbody>
+                </thead>
+                <tbody>
+                <tr ng-repeat="score in leagueScores">
+                    <td>{{score.bowler}}</td>
+                    <td>{{score.roundWin}}</td>
+                    <td>{{score.bestScore}}</td>
+                    <td>{{score.bestTotal}}</td>
+                    <td>{{score.roundWin + score.bestScore + score.bestTotal}}</td>
+                </tr>
+                </tbody>
             </table>
 
         </div>
-
     </div>
-    </div><!-- /container-->
-    </body>
+</div>
+</body>
 
 </html>

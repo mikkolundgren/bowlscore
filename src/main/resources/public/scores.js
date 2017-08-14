@@ -75,6 +75,18 @@ app.controller('AddPayer', function($scope, $http) {
 
 })
 
+app.controller('League', function($scope, $http){
+
+
+        $http.get('/scores/league')
+            .success(function(data) {
+                console.log('get league.', data);
+                $scope.leagueScores = data.scores;
+            });
+
+
+})
+
 app.controller('Charts', function($scope, $http) {
 
     $scope.avg = function(name) {
