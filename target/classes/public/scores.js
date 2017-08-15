@@ -82,6 +82,8 @@ app.controller('League', function($scope, $http){
             .success(function(data) {
                 console.log('get league.', data);
                 $scope.leagueScores = data.scores;
+                $scope.totalSeries = data.numberOfSeries;
+                $scope.numberOfTimes = data.numberOfTimes;
             });
 
 

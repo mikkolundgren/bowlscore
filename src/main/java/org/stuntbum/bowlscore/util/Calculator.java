@@ -80,19 +80,24 @@ public class Calculator {
         int j = 0;
         List<Score> dayScores = new ArrayList<>();
         while(j <= size) {
-            while (startDate.equals(curDate) && i <= size) {
+            while (startDate.equals(curDate) && i < size) {
                 dayScores.add(scores.get(i));
                 i++;
-                curDate = scores.get(i).getFormattedDate();
+                if (i < size) {
+                    curDate = scores.get(i).getFormattedDate();
+                } else {
+                    break;
+                }
             }
             calculateLeagueDay(dayScores, l);
+            j += i;
             j++;
         }
         return l;
     }
 
     public static void calculateLeagueDay(List<Score> dayScores, League league) {
-
+        league.addNumberOfTimes();
         LeagueScore aku = league.getSingleScore("Aku");
         LeagueScore mikko = league.getSingleScore("Mikko");
         LeagueScore olli = league.getSingleScore("Olli");
@@ -139,6 +144,7 @@ public class Calculator {
                     olli.addRoundWin();
                 }
                 akuCur = mikkoCur = olliCur = 0;
+                league.addNumberOfSeries();
             }
         }
         if (akuTotal >= mikkoTotal && akuTotal >= olliTotal) {

@@ -1,5 +1,7 @@
 package org.stuntbum.bowlscore.domain;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class LeagueScore {
 
     private int roundWin = 0;
@@ -39,4 +41,15 @@ public class LeagueScore {
     public String getBowler() {
         return bowler;
     }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("bowler: ", bowler)
+                .append("roundWin: ", roundWin)
+                .append("bestScore: ", bestScore)
+                .append("bestTotal: ", bestTotal)
+                .toString();
+    }
+
 }

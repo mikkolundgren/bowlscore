@@ -58,13 +58,15 @@ public class CalculatorTest {
         scores.addAll(scores2);
         League l = Calculator.generateLeague(scores);
 
-        assertEquals(1, l.getSingleScore("Mikko").getRoundWin());
+        System.out.println(l.toString());
+
+        assertEquals(2, l.getSingleScore("Mikko").getRoundWin());
         assertEquals(0, l.getSingleScore("Aku").getRoundWin());
-        assertEquals(1, l.getSingleScore("Olli").getRoundWin());
+        assertEquals(2, l.getSingleScore("Olli").getRoundWin());
         assertEquals(0, l.getSingleScore("Olli").getBestTotal());
         assertEquals(0, l.getSingleScore("Aku").getBestTotal());
-        assertEquals(1, l.getSingleScore("Mikko").getBestTotal());
-        assertEquals(1, l.getSingleScore("Olli").getBestScore());
+        assertEquals(2, l.getSingleScore("Mikko").getBestTotal());
+        assertEquals(2, l.getSingleScore("Olli").getBestScore());
         assertEquals(0, l.getSingleScore("Mikko").getBestScore());
         assertEquals(0, l.getSingleScore("Aku").getBestScore());
 
