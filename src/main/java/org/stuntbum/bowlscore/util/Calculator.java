@@ -66,9 +66,7 @@ public class Calculator {
     }
 
     public static League generateLeague(List<Score> scores) {
-
         League l = generateEmptyLeague();
-
         if (scores == null || scores.isEmpty()) {
             return l;
         }
@@ -77,26 +75,31 @@ public class Calculator {
         String curDate = scores.get(0).getFormattedDate();
         int size = scores.size();
         int i = 0;
-        int j = 0;
-        List<Score> dayScores = new ArrayList<>();
-        while(j <= size) {
-            while (startDate.equals(curDate) && i < size) {
-                dayScores.add(scores.get(i));
-                i++;
-                if (i < size) {
-                    curDate = scores.get(i).getFormattedDate();
-                } else {
-                    break;
-                }
-            }
+
+        while (i < scores.size()) {
+            List<Score> dayScores = generateDayScores(scores, scores.get(i).getFormattedDate());
             calculateLeagueDay(dayScores, l);
-            j += i;
-            j++;
+            i += dayScores.size();
         }
+
         return l;
     }
 
+    public static List<Score> generateDayScores(List<Score> scores, String day) {
+        List<Score> dayScores = new ArrayList<>();
+        for (int i = 0; i < scores.size(); i++){
+            if (scores.get(i).getFormattedDate().equals(day)) {
+                dayScores.add(scores.get(i));
+            }
+        }
+        //System.out.println("Dayscores generated for day: " + day + ". Size: " + dayScores.size());
+        return dayScores;
+
+    }
+
     public static void calculateLeagueDay(List<Score> dayScores, League league) {
+
+        //System.out.println("dayScores.size: " + dayScores.size());
         league.addNumberOfTimes();
         LeagueScore aku = league.getSingleScore("Aku");
         LeagueScore mikko = league.getSingleScore("Mikko");
@@ -127,7 +130,7 @@ public class Calculator {
                 }
             }
             if (ds.getName().equals("Olli")) {
-                olliTotal = ds.getScore();
+                olliTotal += ds.getScore();
                 olliCur += ds.getScore();
                 if (ds.getScore() > olliBest) {
                     olliBest = ds.getScore();
@@ -147,6 +150,7 @@ public class Calculator {
                 league.addNumberOfSeries();
             }
         }
+
         if (akuTotal >= mikkoTotal && akuTotal >= olliTotal) {
             aku.addBestTotal();
         }
@@ -166,6 +170,7 @@ public class Calculator {
         if (olliBest >= akuBest && olliBest >= mikkoBest) {
             olli.addBestScore();
         }
+        //System.out.println("LeagueDay: " + league.toString());
 
     }
 

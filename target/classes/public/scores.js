@@ -80,7 +80,7 @@ app.controller('League', function($scope, $http){
 
         $http.get('/scores/league')
             .success(function(data) {
-                console.log('get league.', data);
+                //console.log('get league.', data);
                 $scope.leagueScores = data.scores;
                 $scope.totalSeries = data.numberOfSeries;
                 $scope.numberOfTimes = data.numberOfTimes;

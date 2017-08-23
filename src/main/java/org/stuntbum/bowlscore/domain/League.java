@@ -60,6 +60,8 @@ public class League {
     public String toString() {
 
         return new ToStringBuilder(this)
+                .append("numberOfSeries:", numberOfSeries)
+                .append("numberOfTimes:", numberOfTimes)
                 .append("scores: ", scores)
                 .toString();
     }

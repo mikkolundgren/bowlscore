@@ -32,7 +32,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testLeagueCalc() {
+    public void testLeagueCalc1() {
         List<Score> scores = getTestData2();
         League l = Calculator.generateEmptyLeague();
         assertNotNull(l);
@@ -51,14 +51,36 @@ public class CalculatorTest {
         assertNotNull(l);
     }
 
+
+
     @Test
-    public void testGenerateLeague() {
+    public void testGenerateLeague1() {
         List<Score> scores = getTestData2();
-        List<Score> scores2 = getTestData3();
-        scores.addAll(scores2);
+
+        //scores.addAll(getTestData2());
+        //scores.addAll(getTestData4());
         League l = Calculator.generateLeague(scores);
 
-        System.out.println(l.toString());
+        System.out.println("League 1: " + l.toString());
+
+        assertEquals(1, l.getSingleScore("Mikko").getRoundWin());
+        assertEquals(0, l.getSingleScore("Aku").getRoundWin());
+        assertEquals(1, l.getSingleScore("Olli").getRoundWin());
+        assertEquals(0, l.getSingleScore("Olli").getBestTotal());
+        assertEquals(0, l.getSingleScore("Aku").getBestTotal());
+        assertEquals(1, l.getSingleScore("Mikko").getBestTotal());
+        assertEquals(1, l.getSingleScore("Olli").getBestScore());
+        assertEquals(0, l.getSingleScore("Mikko").getBestScore());
+        assertEquals(0, l.getSingleScore("Aku").getBestScore());
+    }
+
+    @Test
+    public void testGenerateLeague2() {
+        List<Score> scores = getTestData2();
+        scores.addAll(getTestData3());
+
+        League l = Calculator.generateLeague(scores);
+        System.out.println("League 2: " + l.toString());
 
         assertEquals(2, l.getSingleScore("Mikko").getRoundWin());
         assertEquals(0, l.getSingleScore("Aku").getRoundWin());
@@ -70,7 +92,26 @@ public class CalculatorTest {
         assertEquals(0, l.getSingleScore("Mikko").getBestScore());
         assertEquals(0, l.getSingleScore("Aku").getBestScore());
 
+    }
 
+    @Test
+    public void testGenerateLeague3() {
+        List<Score> scores = getTestData2();
+        scores.addAll(getTestData3());
+        scores.addAll(getTestData4());
+
+        League l = Calculator.generateLeague(scores);
+        System.out.println("League 3: " + l.toString());
+
+        assertEquals(2, l.getSingleScore("Mikko").getRoundWin());
+        assertEquals(0, l.getSingleScore("Aku").getRoundWin());
+        assertEquals(4, l.getSingleScore("Olli").getRoundWin());
+        assertEquals(1, l.getSingleScore("Olli").getBestTotal());
+        assertEquals(0, l.getSingleScore("Aku").getBestTotal());
+        assertEquals(2, l.getSingleScore("Mikko").getBestTotal());
+        assertEquals(3, l.getSingleScore("Olli").getBestScore());
+        assertEquals(0, l.getSingleScore("Mikko").getBestScore());
+        assertEquals(0, l.getSingleScore("Aku").getBestScore());
 
     }
 
@@ -106,6 +147,17 @@ public class CalculatorTest {
         scores.add(new Score("Olli", 210, getDateFromString("12.08.2017")));
         scores.add(new Score("Mikko", 199, getDateFromString("12.08.2017")));
         scores.add(new Score("Aku", 188, getDateFromString("12.08.2017")));
+        return scores;
+    }
+
+    private List<Score> getTestData4() {
+        List<Score> scores = new ArrayList<Score>();
+        scores.add(new Score("Aku", 100, getDateFromString("23.08.2017")));
+        scores.add(new Score("Mikko", 120, getDateFromString("23.08.2017")));
+        scores.add(new Score("Olli", 160, getDateFromString("23.08.2017")));
+        scores.add(new Score("Aku", 100, getDateFromString("23.08.2017")));
+        scores.add(new Score("Mikko", 120, getDateFromString("23.08.2017")));
+        scores.add(new Score("Olli", 200, getDateFromString("23.08.2017")));
         return scores;
     }
 
