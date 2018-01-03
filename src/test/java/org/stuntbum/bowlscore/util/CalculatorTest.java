@@ -51,8 +51,6 @@ public class CalculatorTest {
         assertNotNull(l);
     }
 
-
-
     @Test
     public void testGenerateLeague1() {
         List<Score> scores = getTestData2();
@@ -115,6 +113,30 @@ public class CalculatorTest {
 
     }
 
+    @Test
+    public void testGenerateLeague4() {
+        List<Score> scores = getTestData5();
+        League l = Calculator.generateLeague(scores);
+        System.out.println("League 4: " + l.toString());
+
+        assertEquals(2, l.getSingleScore("Olli").getRoundWin());
+        assertEquals(0, l.getSingleScore("Mikko").getRoundWin());
+        assertEquals(1, l.getSingleScore("Olli").getBestTotal());
+        assertEquals(1, l.getSingleScore("Olli").getBestScore());
+    }
+
+    @Test
+    public void testGenerateLeague5() {
+        List<Score> scores = getTestData6();
+        League l = Calculator.generateLeague(scores);
+        System.out.println("League 5: " + l.toString());
+
+        assertEquals(1, l.getSingleScore("Olli").getRoundWin());
+        assertEquals(1, l.getSingleScore("Aku").getRoundWin());
+        assertEquals(1, l.getSingleScore("Olli").getBestTotal());
+        assertEquals(1, l.getSingleScore("Olli").getBestScore());
+    }
+
     private List<Score> getTestData1() {
         List<Score> scores = new ArrayList<Score>();
         Score s1 = new Score("Aku", 200, getDateFromString("01.01.2016"));
@@ -157,6 +179,24 @@ public class CalculatorTest {
         scores.add(new Score("Olli", 160, getDateFromString("23.08.2017")));
         scores.add(new Score("Aku", 100, getDateFromString("23.08.2017")));
         scores.add(new Score("Mikko", 120, getDateFromString("23.08.2017")));
+        scores.add(new Score("Olli", 200, getDateFromString("23.08.2017")));
+        return scores;
+    }
+
+    private List<Score> getTestData5() {
+        List<Score> scores = new ArrayList<Score>();
+        scores.add(new Score("Mikko", 120, getDateFromString("23.08.2017")));
+        scores.add(new Score("Olli", 160, getDateFromString("23.08.2017")));
+        scores.add(new Score("Mikko", 120, getDateFromString("23.08.2017")));
+        scores.add(new Score("Olli", 200, getDateFromString("23.08.2017")));
+        return scores;
+    }
+
+    private List<Score> getTestData6() {
+        List<Score> scores = new ArrayList<Score>();
+        scores.add(new Score("Olli", 120, getDateFromString("23.08.2017")));
+        scores.add(new Score("Aku", 160, getDateFromString("23.08.2017")));
+        scores.add(new Score("Aku", 120, getDateFromString("23.08.2017")));
         scores.add(new Score("Olli", 200, getDateFromString("23.08.2017")));
         return scores;
     }

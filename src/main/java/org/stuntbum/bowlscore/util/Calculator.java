@@ -105,7 +105,7 @@ public class Calculator {
         LeagueScore mikko = league.getSingleScore("Mikko");
         LeagueScore olli = league.getSingleScore("Olli");
         int akuCur, mikkoCur, olliCur;
-        akuCur = mikkoCur = olliCur = 0;
+        akuCur = 0; mikkoCur = 0; olliCur = 0;
 
         int akuBest, mikkoBest, olliBest;
         akuBest = mikkoBest = olliBest = 0;
@@ -113,11 +113,21 @@ public class Calculator {
         int akuTotal, mikkoTotal, olliTotal;
         akuTotal = mikkoTotal = olliTotal = 0;
 
+        Stack akuScores = new Stack();
+        Stack mikkoScores = new Stack();
+        Stack olliScores = new Stack();
+
         for (int i = 0; i < dayScores.size(); i++) {
+            int[] scoreArray = new int[dayScores.size() * 3];
+            for (int j = 0 ; j < scoreArray.length; j++) {
+                scoreArray[j] = 0;
+            }
+
             Score ds = dayScores.get(i);
             if (ds.getName().equals("Aku")) {
                 akuTotal += ds.getScore();
                 akuCur = ds.getScore();
+                akuScores.push(ds.getScore());
                 if (ds.getScore() > akuBest) {
                     akuBest = ds.getScore();
                 }
@@ -125,6 +135,7 @@ public class Calculator {
             if (ds.getName().equals("Mikko")) {
                 mikkoTotal += ds.getScore();
                 mikkoCur = ds.getScore();
+                mikkoScores.push(ds.getScore());
                 if (ds.getScore() > mikkoBest) {
                     mikkoBest = ds.getScore();
                 }
@@ -132,10 +143,14 @@ public class Calculator {
             if (ds.getName().equals("Olli")) {
                 olliTotal += ds.getScore();
                 olliCur += ds.getScore();
+                olliScores.push(ds.getScore());
                 if (ds.getScore() > olliBest) {
                     olliBest = ds.getScore();
                 }
             }
+
+            // todo: push scores to individual arrays and compare from there
+            /*
             if (akuCur > 0 && mikkoCur > 0 && olliCur > 0) {
                 if (akuCur >= mikkoCur && akuCur >= olliCur) {
                     aku.addRoundWin();
@@ -149,7 +164,11 @@ public class Calculator {
                 akuCur = mikkoCur = olliCur = 0;
                 league.addNumberOfSeries();
             }
+            */
         }
+
+        calculateScores(akuScores, mikkoScores, olliScores, league);
+
 
         if (akuTotal >= mikkoTotal && akuTotal >= olliTotal) {
             aku.addBestTotal();
@@ -172,6 +191,29 @@ public class Calculator {
         }
         //System.out.println("LeagueDay: " + league.toString());
 
+    }
+
+    protected static void calculateScores(Stack akuScores, Stack mikkoScores, Stack olliScores, League league) {
+
+        while (true) {
+
+            int aku = akuScores.empty() ? 0 : Integer.parseInt(""+akuScores.pop());
+            int mikko = mikkoScores.empty() ? 0 : Integer.parseInt(""+mikkoScores.pop());
+            int olli = olliScores.empty() ? 0 : Integer.parseInt(""+olliScores.pop());
+
+            if (aku >= mikko && aku >= olli) {
+                league.getSingleScore("Aku").addRoundWin();
+            }
+            if (mikko >= aku && mikko >= olli) {
+                league.getSingleScore("Mikko").addRoundWin();
+            }
+            if (olli >= aku && olli >= mikko) {
+                league.getSingleScore("Olli").addRoundWin();
+            }
+            if (akuScores.isEmpty() && mikkoScores.isEmpty() && olliScores.isEmpty()) {
+                break;
+            }
+        }
     }
 
     public static League generateEmptyLeague() {
