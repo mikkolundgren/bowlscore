@@ -7,10 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import javax.sql.DataSource;
-import java.net.URI;
-import java.net.URISyntaxException;
-
 /**
  * Created by mikko on 03/01/16.
  */
@@ -28,7 +24,7 @@ public class RepositoryConfig {
         String env = System.getenv("DOMAIN");
         BasicDataSource basicDataSource = new BasicDataSource();
         if ("local".equals(env)) {
-            dbUrl = "jdbc:postgresql://localhost:5432/scores";
+            dbUrl = "jdbc:postgresql://localhost:5432/scores_bu";
         } else {
             dbUrl = System.getenv("JDBC_DATABASE_URL");
             String username = System.getenv("JDBC_DATABASE_USERNAME");
