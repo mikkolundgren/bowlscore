@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html ng-app="bowlScore">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,80 +13,97 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+        crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script src="highcharts-ng.js"></script>
     <script src="scores.js"></script>
+    <link rel="icon" type="image/png" href="favicon.ico" />
 </head>
 
-    <body>
+<body>
     <div class="container">
-    <div class="header clearfix" ng-controller="Scores">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="index.html">Scores</a></li>
-                <li role="presentation"><a href="charts.html">Charts</a></li>
-                <li role="presentation" ><a href="league.html">League</a></li>
-                <li role="presentation"><a href="add.html">Add score</a></li>
-                <li role="presentation"><a href="payers.html">Maksajat</a> </li>
-            </ul>
-        </nav>
-        <h3 class="text-muted">Scores</h3>
-        <div class="row">
-            <div class="col-xs-6 col-md-3">
-                <a href="#" ng-click="show('Aku')">
-                    <img src="aku.jpg" class="img-fluid img-circle" />
-                </a>
+        <div class="header clearfix" ng-controller="Scores">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active">
+                        <a href="index.html">Scores</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="charts.html">Charts</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="league.html">League</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="add.html">Add score</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="payers.html">Maksajat</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Scores</h3>
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" ng-click="show('Aku')">
+                        <img src="aku.jpg" class="img-fluid img-circle" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" ng-click="show('Mikko')">
+                        <img src="mikko.jpg" class="img-fluid img-circle" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" ng-click="show('Olli')">
+                        <img src="olli.jpg" class="img-fluid img-circle" />
+                    </a>
+                </div>
             </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" ng-click="show('Mikko')">
-                    <img src="mikko.jpg" class="img-fluid img-circle" />
-                </a>
+            <div>
+                <span class="label label-success">{{message}}</span>
             </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" ng-click="show('Olli')">
-                    <img src="olli.jpg" class="img-fluid img-circle" />
-                </a>
-            </div>
-        </div>
-        <div>
-            <span class="label label-success">{{message}}</span>
-        </div>
 
-        <h2 class="sub-header">Scores {{name}} -- Highest: {{stat.0.0}} Lowest: {{stat.0.1}} Avg: {{stat.0.2 | number : 2}} <small>(from {{stat.0.3}} series)</small> </h2>
-        <div class="table-responsive">
-            <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Score</th>
-                    <!--
+            <h2 class="sub-header">Scores {{name}} -- Highest: {{stat.0.0}} Lowest: {{stat.0.1}} Avg: {{stat.0.2 | number : 2}}
+                <small>(from {{stat.0.3}} series)</small>
+            </h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Score</th>
+                            <!--
                     <th>Delete</th>
                     -->
-                </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="score in scores">
-                <td>{{score.formattedDate}}</td>
-                <td>{{score.score}}</td>
-                <!--
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="score in scores">
+                            <td>{{score.formattedDate}}</td>
+                            <td>{{score.score}}</td>
+                            <!--
                 <td><a href="#" class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="remove(score)"></a></td>
                 -->
-            </tr>
-            </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
 
         </div>
-
     </div>
-    </div><!-- /container-->
-    </body>
+    <!-- /container-->
+</body>
 
 </html>
