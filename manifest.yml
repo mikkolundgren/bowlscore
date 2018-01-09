@@ -1,0 +1,10 @@
+---
+applications:
+  - name: bowlscore
+    path: target/bowlscore-1.0-SNAPSHOT.jar
+    memory: 512M
+    instances: 1
+    buildpack: java_buildpack
+    env:
+      JAVA_OPTS: '-XX:MaxMetaspaceSize=80780K -Xss512k -Xmx200M -XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M'
+      JBP_CONFIG_OPEN_JDK_JRE: '{ memory_calculator: { stack_threads: 50 } }'

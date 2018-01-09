@@ -16,7 +16,7 @@ import java.util.List;
  * Created by mikko on 03/01/16.
  */
 @RestController
-@RequestMapping( value = "/scores", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/scores", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ScoreController {
 
     @Autowired
@@ -24,13 +24,15 @@ public class ScoreController {
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public List<Score> getScoresByName(@PathVariable String name) {
-        List<Score> scores =  repository.findByNameOrderByDateDesc(name);
-        System.out.println("Scores: " + scores.toString());
+        List<Score> scores = repository.findByNameOrderByDateDesc(name);
+        //System.out.println("Scores: " + scores.toString());
         return scores;
     }
 
     @RequestMapping(value = "/stats/{name}", method = RequestMethod.GET)
-    public List<Score> getStatsByName(@PathVariable String name) {return repository.findStatsByName(name);}
+    public List<Score> getStatsByName(@PathVariable String name) {
+        return repository.findStatsByName(name);
+    }
 
     @RequestMapping(value = "/{name}/avg", method = RequestMethod.GET)
     public List<Average> getScoreAvgByName(@PathVariable String name) {
@@ -63,10 +65,8 @@ public class ScoreController {
     public League getLeague() {
         List<Score> scores = repository.findAllByOrderByTimestampAsc();
         //List<Score> scores = repository.findAll();
-        System.out.println("Scores: " + scores.toString());
+        //System.out.println("Scores: " + scores.toString());
         return Calculator.generateLeague(scores);
     }
-
-
 
 }
