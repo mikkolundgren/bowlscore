@@ -77,16 +77,29 @@ app.controller('AddPayer', function($scope, $http) {
 
 app.controller('League', function($scope, $http){
 
+    getLeague(false);
 
-        $http.get('/scores/league')
+    $scope.toggleTeam = function () {
+        console.log("toggle: " + $scope.fullteam);
+        getLeague($scope.fullteam);
+    }
+
+    function getLeague(fullteam) {
+        var url = "/scores/league";
+        if (fullteam) {
+            url += "?fullteam=true";
+        } else {
+            url += "?fullteam=false";
+        }
+        console.log("getLeague(" + url + ")");
+        $http.get(url)
             .success(function(data) {
-                //console.log('get league.', data);
+            //console.log('get league.', data);
                 $scope.leagueScores = data.scores;
                 $scope.totalSeries = data.numberOfSeries;
                 $scope.numberOfTimes = data.numberOfTimes;
             });
-
-
+    }
 })
 
 app.controller('Charts', function($scope, $http) {

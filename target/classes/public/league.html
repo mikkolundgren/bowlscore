@@ -1,5 +1,6 @@
 <!doctype html>
-<html ng-app="bowlScore">
+<html ng-app="bowlScore" xmlns="http://www.w3.org/1999/html">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,13 +12,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+        crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -25,47 +29,73 @@
 
     <script src="highcharts-ng.js"></script>
     <script src="scores.js"></script>
+
+    <link href="series.css" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="favicon.ico" />
+
+
+
 </head>
-
 <body>
-<div class="container">
-    <div class="header clearfix" ng-controller="League">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation" ><a href="index.html">Scores</a></li>
-                <li role="presentation"><a href="charts.html">Charts</a></li>
-                <li role="presentation" class="active"><a href="league.html">League</a></li>
-                <li role="presentation"><a href="add.html">Add score</a></li>
-                <li role="presentation"><a href="payers.html">Maksajat</a> </li>
-            </ul>
-        </nav>
-        <h2 class="text-muted">League after {{numberOfTimes}} times and {{totalSeries}} series.</h2>
+    <div class="container">
+        <div class="header clearfix" ng-controller="League">
+            <nav>
+                <ul class="nav nav-pills pull-right">x
+                    <li role="presentation">
+                        <a href="index.html">Scores</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="charts.html">Charts</a>
+                    </li>
+                    <li role="presentation" class="active">
+                        <a href="league.html">League</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="add.html">Add score</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="payers.html">Maksajat</a>
+                    </li>
+                </ul>
+            </nav>
+            <h2 class="text-muted">League after {{numberOfTimes}} times and {{totalSeries}} series.</h2>
+            <h3>Fullteam</h3>
+            <div>
+                <label class="switch">
+                    <input type="checkbox" checked ng-change="toggleTeam()" ng-model="fullteam" name="fullteam" id="fullteam">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Serie
+                                <br/>Wins</th>
+                            <th>Best
+                                <br/>scores</th>
+                            <th>Total
+                                <br/>Scores</th>
+                            <th>Total
+                                <br/>points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="score in leagueScores">
+                            <td>{{score.bowler}}</td>
+                            <td>{{score.roundWin}}</td>
+                            <td>{{score.bestScore}}</td>
+                            <td>{{score.bestTotal}}</td>
+                            <td>{{score.roundWin + score.bestScore + score.bestTotal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Serie<br/>Wins</th>
-                    <th>Best <br/>scores</th>
-                    <th>Total<br/>Scores</th>
-                    <th>Total<br/>points</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="score in leagueScores">
-                    <td>{{score.bowler}}</td>
-                    <td>{{score.roundWin}}</td>
-                    <td>{{score.bestScore}}</td>
-                    <td>{{score.bestTotal}}</td>
-                    <td>{{score.roundWin + score.bestScore + score.bestTotal}}</td>
-                </tr>
-                </tbody>
-            </table>
-
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>

@@ -36,7 +36,7 @@ public class CalculatorTest {
         List<Score> scores = getTestData2();
         League l = Calculator.generateEmptyLeague();
         assertNotNull(l);
-        Calculator.calculateLeagueDay(scores, l);
+        Calculator.calculateLeagueDay(scores, l, false);
 
         assertEquals(1, l.getSingleScore("Mikko").getRoundWin());
         assertEquals(0, l.getSingleScore("Aku").getRoundWin());
@@ -57,7 +57,7 @@ public class CalculatorTest {
 
         //scores.addAll(getTestData2());
         //scores.addAll(getTestData4());
-        League l = Calculator.generateLeague(scores);
+        League l = Calculator.generateLeague(scores, false);
 
         System.out.println("League 1: " + l.toString());
 
@@ -77,7 +77,7 @@ public class CalculatorTest {
         List<Score> scores = getTestData2();
         scores.addAll(getTestData3());
 
-        League l = Calculator.generateLeague(scores);
+        League l = Calculator.generateLeague(scores, false);
         System.out.println("League 2: " + l.toString());
 
         assertEquals(2, l.getSingleScore("Mikko").getRoundWin());
@@ -98,7 +98,7 @@ public class CalculatorTest {
         scores.addAll(getTestData3());
         scores.addAll(getTestData4());
 
-        League l = Calculator.generateLeague(scores);
+        League l = Calculator.generateLeague(scores, false);
         System.out.println("League 3: " + l.toString());
 
         assertEquals(2, l.getSingleScore("Mikko").getRoundWin());
@@ -116,7 +116,7 @@ public class CalculatorTest {
     @Test
     public void testGenerateLeague4() {
         List<Score> scores = getTestData5();
-        League l = Calculator.generateLeague(scores);
+        League l = Calculator.generateLeague(scores, false);
         System.out.println("League 4: " + l.toString());
 
         assertEquals(2, l.getSingleScore("Olli").getRoundWin());
@@ -128,7 +128,7 @@ public class CalculatorTest {
     @Test
     public void testGenerateLeague5() {
         List<Score> scores = getTestData6();
-        League l = Calculator.generateLeague(scores);
+        League l = Calculator.generateLeague(scores, false);
         System.out.println("League 5: " + l.toString());
 
         assertEquals(1, l.getSingleScore("Olli").getRoundWin());

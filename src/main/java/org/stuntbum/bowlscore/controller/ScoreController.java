@@ -62,11 +62,11 @@ public class ScoreController {
     }
 
     @RequestMapping(value = "/league", method = RequestMethod.GET)
-    public League getLeague() {
+    public League getLeague(@RequestParam boolean fullteam) {
         List<Score> scores = repository.findAllByOrderByTimestampAsc();
         //List<Score> scores = repository.findAll();
         //System.out.println("Scores: " + scores.toString());
-        return Calculator.generateLeague(scores);
+        return Calculator.generateLeague(scores, fullteam);
     }
 
 }

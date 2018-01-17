@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="bowlScore">
+<html ng-app="bowlScore" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -29,14 +29,19 @@
 
     <script src="highcharts-ng.js"></script>
     <script src="scores.js"></script>
-    <link rel="icon" type="image/png" href="favicon.ico" />
-</head>
 
+    <link href="series.css" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="favicon.ico" />
+
+
+
+</head>
 <body>
     <div class="container">
         <div class="header clearfix" ng-controller="League">
             <nav>
-                <ul class="nav nav-pills pull-right">
+                <ul class="nav nav-pills pull-right">x
                     <li role="presentation">
                         <a href="index.html">Scores</a>
                     </li>
@@ -55,7 +60,13 @@
                 </ul>
             </nav>
             <h2 class="text-muted">League after {{numberOfTimes}} times and {{totalSeries}} series.</h2>
-
+            <h3>Fullteam</h3>
+            <div>
+                <label class="switch">
+                    <input type="checkbox" checked ng-change="toggleTeam()" ng-model="fullteam" name="fullteam" id="fullteam">
+                    <span class="slider round"></span>
+                </label>
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>

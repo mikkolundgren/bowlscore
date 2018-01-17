@@ -1,5 +1,6 @@
 <!doctype html>
 <html ng-app="bowlScore">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,13 +12,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+        crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -25,55 +29,66 @@
 
     <script src="highcharts-ng.js"></script>
     <script src="scores.js"></script>
+    <link rel="icon" type="image/png" href="favicon.ico" />
 </head>
 
 <body>
-<div class="container">
-    <div class="header clearfix" ng-controller="AddPayer">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation" ><a href="index.html">Scores</a></li>
-                <li role="presentation"><a href="charts.html">Charts</a></li>
-                <li role="presentation" ><a href="league.html">League</a></li>
-                <li role="presentation"><a href="add.html">Add score</a></li>
-                <li role="presentation" class="active"><a href="payers.html">Maksajat</a> </li>
-            </ul>
-        </nav>
-        <h3 class="text-muted">Add payer</h3>
-        <div class="form-group">
-            <select class="form-control"  ng-model="name">
-                <option value="Aku" selected="selected">Aku</option>
-                <option value="Mikko">Mikko</option>
-                <option value="Olli">Olli</option>
-            </select>
-        </div>
+    <div class="container">
+        <div class="header clearfix" ng-controller="AddPayer">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation">
+                        <a href="index.html">Scores</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="charts.html">Charts</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="league.html">League</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="add.html">Add score</a>
+                    </li>
+                    <li role="presentation" class="active">
+                        <a href="payers.html">Maksajat</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Add payer</h3>
+            <div class="form-group">
+                <select class="form-control" ng-model="name">
+                    <option value="Aku" selected="selected">Aku</option>
+                    <option value="Mikko">Mikko</option>
+                    <option value="Olli">Olli</option>
+                </select>
+            </div>
 
-        <div>
-            <button type="button" class="btn btn-default" ng-click="add()">Add</button>
-        </div> 
-        <div>
-            <span class="label label-success">{{message}}</span>
-        </div>
-        <h2 class="sub-header">Viimeksi maksaneet</h2>
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Name</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="bowler in bowlers">
-                    <td>{{bowler.formattedDate}}</td>
-                    <td>{{bowler.name}}</td>
-                </tr>
-                </tbody>
-            </table>
+            <div>
+                <button type="button" class="btn btn-default" ng-click="add()">Add</button>
+            </div>
+            <div>
+                <span class="label label-success">{{message}}</span>
+            </div>
+            <h2 class="sub-header">Viimeksi maksaneet</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="bowler in bowlers">
+                            <td>{{bowler.formattedDate}}</td>
+                            <td>{{bowler.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>
