@@ -77,20 +77,30 @@ app.controller('AddPayer', function($scope, $http) {
 
 app.controller('League', function($scope, $http){
 
-    getLeague(false);
+    $scope.year = "2018";
+    getLeague(false, $scope.year);
+
+    $scope.setYear = function(year) {
+        $scope.year = year;
+        console.log("set year: " + $scope.year);
+        getLeague($scope.fullteam, $scope.year);
+    }
 
     $scope.toggleTeam = function () {
         console.log("toggle: " + $scope.fullteam);
-        getLeague($scope.fullteam);
+        getLeague($scope.fullteam, $scope.year);
     }
 
-    function getLeague(fullteam) {
+
+
+    function getLeague(fullteam, year) {
         var url = "/scores/league";
         if (fullteam) {
             url += "?fullteam=true";
         } else {
             url += "?fullteam=false";
         }
+        url += "&year=" + year;
         console.log("getLeague(" + url + ")");
         $http.get(url)
             .success(function(data) {

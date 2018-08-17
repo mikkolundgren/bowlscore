@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.stuntbum.bowlscore.domain.Score;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ public interface ScoreRepository extends CrudRepository<Score, String> {
     void delete(Score score);
 
     @Cacheable(value = "scoresOrderTimestamp")
-    @Query("select foo from Score foo where date > '2017-08-10' order by timestamp asc")
-    List<Score> findAllByOrderByTimestampAsc();
+    @Query("select foo from Score foo where date > :start and date < :end order by timestamp asc")
+    List<Score> findAllByOrderByTimestampAsc(@Param("start") Date start, @Param("end") Date end);
 
 }

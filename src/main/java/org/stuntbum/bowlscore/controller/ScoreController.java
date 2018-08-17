@@ -1,5 +1,6 @@
 package org.stuntbum.bowlscore.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import org.stuntbum.bowlscore.domain.Score;
 import org.stuntbum.bowlscore.repository.ScoreRepository;
 import org.stuntbum.bowlscore.util.Calculator;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +23,8 @@ public class ScoreController {
 
     @Autowired
     private ScoreRepository repository;
+
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public List<Score> getScoresByName(@PathVariable String name) {
@@ -62,8 +66,13 @@ public class ScoreController {
     }
 
     @RequestMapping(value = "/league", method = RequestMethod.GET)
-    public League getLeague(@RequestParam boolean fullteam) {
-        List<Score> scores = repository.findAllByOrderByTimestampAsc();
+    public League getLeague(@RequestParam boolean fullteam, @RequestParam String year) throws Exception {
+        if (StringUtils.isEmpty(year)) {
+            year = "2018";
+        }
+        String start = year + "-08-01";
+        String end = "" + Integer.parseInt(year) + 1 + "-07-31";
+        List<Score> scores = repository.findAllByOrderByTimestampAsc(sdf.parse(start), sdf.parse(end));
         //List<Score> scores = repository.findAll();
         //System.out.println("Scores: " + scores.toString());
         return Calculator.generateLeague(scores, fullteam);
