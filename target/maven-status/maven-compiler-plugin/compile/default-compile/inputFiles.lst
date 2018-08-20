@@ -6,6 +6,7 @@
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/domain/Average.java
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/domain/Score.java
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/repository/BowlerRepository.java
+/Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/config/WebSecurityConfig.java
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/controller/ScoreController.java
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/config/MvcConfig.java
 /Users/b556585/Documents/projects/bowlscore/src/main/java/org/stuntbum/bowlscore/domain/Bowler.java

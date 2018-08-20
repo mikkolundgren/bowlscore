@@ -11,5 +11,6 @@ org/stuntbum/bowlscore/config/CacheConfig.class
 org/stuntbum/bowlscore/util/Calculator.class
 org/stuntbum/bowlscore/config/RepositoryConfig.class
 org/stuntbum/bowlscore/domain/Bowler.class
+org/stuntbum/bowlscore/config/WebSecurityConfig.class
 org/stuntbum/bowlscore/domain/Score.class
 org/stuntbum/bowlscore/repository/ScoreRepository.class
