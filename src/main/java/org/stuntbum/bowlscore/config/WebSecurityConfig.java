@@ -13,8 +13,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests()
-                .anyRequest().fullyAuthenticated();
+        httpSecurity
+                .csrf()
+                .disable()
+                .authorizeRequests()
+                .antMatchers("/")
+                .authenticated()
+                .antMatchers("/bowlers/**", "/scores/**").permitAll();
+
         httpSecurity.httpBasic();
     }
 
