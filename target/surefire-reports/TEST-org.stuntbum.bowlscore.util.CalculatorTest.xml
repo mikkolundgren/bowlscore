@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.stuntbum.bowlscore.util.CalculatorTest" time="0.068" tests="7" errors="0" skipped="0" failures="0">
+<testsuite name="org.stuntbum.bowlscore.util.CalculatorTest" time="0.09" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib"/>
@@ -9,7 +9,6 @@
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="maven.multiModuleProjectDirectory" value="/Users/b556585/Documents/projects/bowlscore"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
-    <property name="ftp.proxyHost" value="opkfipx.op.fi"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
@@ -26,19 +25,17 @@
     <property name="java.io.tmpdir" value="/var/folders/75/xr7jzx69493fnhfc4snggdjnn417p9/T/"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="https.proxyHost" value="opkfipx.op.fi"/>
     <property name="os.name" value="Mac OS X"/>
     <property name="classworlds.conf" value="/usr/local/Cellar/maven/3.5.0/libexec/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/b556585/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
-    <property name="http.proxyPort" value="8085"/>
     <property name="maven.conf" value="/usr/local/Cellar/maven/3.5.0/libexec/conf"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.12.6"/>
-    <property name="http.nonProxyHosts" value="local|*.local|opkk.fi|*.opkk.fi|okobank.com|*.okobank.com|opintra.fi|*.opintra.fi|osuuspankki.fi|*.osuuspankki.fi|op-pohjola.fi|*.op-pohjola.fi|oko.fi|*.oko.fi|okobank.fi|*.okobank.fi|okobank.net|*.okobank.net|andelsbanken.fi|*.andelsbanken.fi|pohjolagroup.com|*.pohjolagroup.com|pohjola.fi|*.pohjola.fi|pohjola.com|*.pohjola.com|a-vakuutus.fi|*.a-vakuutus.fi|eurooppalainen.fi|*.eurooppalainen.fi|https://193.142.174.132|*.https://193.142.174.132|op.fi|*.op.fi|op-palvelut.net|*.op-palvelut.net|localhost|*.localhost"/>
     <property name="library.jansi.path" value="/usr/local/Cellar/maven/3.5.0/libexec/lib/jansi-native/osx64"/>
+    <property name="http.nonProxyHosts" value="local|*.local|opkk.fi|*.opkk.fi|okobank.com|*.okobank.com|opintra.fi|*.opintra.fi|osuuspankki.fi|*.osuuspankki.fi|op-pohjola.fi|*.op-pohjola.fi|oko.fi|*.oko.fi|okobank.fi|*.okobank.fi|okobank.net|*.okobank.net|andelsbanken.fi|*.andelsbanken.fi|pohjolagroup.com|*.pohjolagroup.com|pohjola.fi|*.pohjola.fi|pohjola.com|*.pohjola.com|a-vakuutus.fi|*.a-vakuutus.fi|eurooppalainen.fi|*.eurooppalainen.fi|https://193.142.174.132|*.https://193.142.174.132|op.fi|*.op.fi|op-palvelut.net|*.op-palvelut.net|localhost|*.localhost"/>
     <property name="user.home" value="/Users/b556585"/>
     <property name="user.timezone" value="Europe/Helsinki"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
@@ -51,13 +48,11 @@
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="ftp.proxyPort" value="8085"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.version" value="1.8.0_144"/>
     <property name="java.ext.dirs" value="/Users/b556585/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
-    <property name="http.proxyHost" value="opkfipx.op.fi"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="maven.home" value="/usr/local/Cellar/maven/3.5.0/libexec"/>
@@ -65,16 +60,15 @@
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="https.proxyPort" value="8085"/>
     <property name="socksNonProxyHosts" value="local|*.local|opkk.fi|*.opkk.fi|okobank.com|*.okobank.com|opintra.fi|*.opintra.fi|osuuspankki.fi|*.osuuspankki.fi|op-pohjola.fi|*.op-pohjola.fi|oko.fi|*.oko.fi|okobank.fi|*.okobank.fi|okobank.net|*.okobank.net|andelsbanken.fi|*.andelsbanken.fi|pohjolagroup.com|*.pohjolagroup.com|pohjola.fi|*.pohjola.fi|pohjola.com|*.pohjola.com|a-vakuutus.fi|*.a-vakuutus.fi|eurooppalainen.fi|*.eurooppalainen.fi|https://193.142.174.132|*.https://193.142.174.132|op.fi|*.op.fi|op-palvelut.net|*.op-palvelut.net|localhost|*.localhost"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|opkk.fi|*.opkk.fi|okobank.com|*.okobank.com|opintra.fi|*.opintra.fi|osuuspankki.fi|*.osuuspankki.fi|op-pohjola.fi|*.op-pohjola.fi|oko.fi|*.oko.fi|okobank.fi|*.okobank.fi|okobank.net|*.okobank.net|andelsbanken.fi|*.andelsbanken.fi|pohjolagroup.com|*.pohjolagroup.com|pohjola.fi|*.pohjola.fi|pohjola.com|*.pohjola.com|a-vakuutus.fi|*.a-vakuutus.fi|eurooppalainen.fi|*.eurooppalainen.fi|https://193.142.174.132|*.https://193.142.174.132|op.fi|*.op.fi|op-palvelut.net|*.op-palvelut.net|localhost|*.localhost"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testGetAverages" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.026"/>
-  <testcase name="testLeagueCalc1" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.003"/>
-  <testcase name="testGenerateLeague1" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.029"/>
-  <testcase name="testGenerateLeague2" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.004"/>
-  <testcase name="testGenerateLeague3" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.004"/>
-  <testcase name="testGenerateLeague4" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.001"/>
+  <testcase name="testGetAverages" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.027"/>
+  <testcase name="testLeagueCalc1" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.008"/>
+  <testcase name="testGenerateLeague1" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.041"/>
+  <testcase name="testGenerateLeague2" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.005"/>
+  <testcase name="testGenerateLeague3" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.006"/>
+  <testcase name="testGenerateLeague4" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.002"/>
   <testcase name="testGenerateLeague5" classname="org.stuntbum.bowlscore.util.CalculatorTest" time="0.001"/>
 </testsuite>
